@@ -1,1 +1,0 @@
-(()=>{var e;document.body.appendChild(((e=document.createElement("div")).innerHTML="HELLO WORLD!",e))})();
