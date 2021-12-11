@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './reset.css';
+
+.left-container {
+  @apply bg-white p-6;
+}

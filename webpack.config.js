@@ -1,12 +1,12 @@
 const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
   devtool: "inline-source-map",
   mode: "development",
   devServer: {
-    static: "./dist",
+    watchFiles: ["src/**/*"],
   },
   module: {
     rules: [
@@ -15,11 +15,22 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "Budget App",
+    new CopyPlugin({
+      patterns: [
+        { from: "src/index.html", to: "index.html" },
+        {
+          from: "src/assets",
+          to: "assets",
+        },
+      ],
     }),
   ],
   resolve: {

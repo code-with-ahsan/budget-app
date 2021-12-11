@@ -1,11 +1,4 @@
-function component() {
-  const element = document.createElement('div');
+import "./styles/index.css";
+import "./components/highcharts";
 
-  // Lodash, currently included via a script, is required for this line to work
-  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.innerHTML = 'HELLO WORLD!'
-
-  return element;
-}
-
-document.body.appendChild(component());
+console.log("test");
